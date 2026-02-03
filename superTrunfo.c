@@ -4,10 +4,11 @@ int main(){
     char estado;
     char  codigoCarta[3];
     char nomeCidade[15];
-    int populacao;
-    float area;
+    int populacao1;
+    float area1;
     float pib;
     int pontoTuristico;
+    float densidade1;
 
     char estado2;
     char  codigoCarta2[3];
@@ -16,6 +17,14 @@ int main(){
     float area2;
     float pib2;
     int pontoTuristico2;
+    float densidade2;
+
+    float desndidadePopulacao(float populacao, float area);
+    float densidadePopulacao(float populacao, float area){
+        
+
+        return populacao / area;
+    }
 
     printf("Desafio Super Trunfo! \n");
 
@@ -30,9 +39,9 @@ int main(){
     printf("Nome da cidade: ");
     scanf("%s",nomeCidade);
     printf("População: ");
-    scanf("%d",&populacao);
+    scanf("%d",&populacao1);
     printf("Area: ");
-    scanf("%f",&area);
+    scanf("%f",&area1);
     printf("Pib: ");
     scanf("%f",&pib);
     printf("Pontos turisticos: ");
@@ -45,10 +54,13 @@ int main(){
     printf("Estado: %c \n",estado);
     printf("Codigo da carta: %s \n",codigoCarta);
     printf("Nome da cidade: %s \n",nomeCidade);
-    printf("População: %d \n",populacao);
-    printf("Area: %.2f \n",area);
+    printf("População: %d \n",populacao1);
+    printf("Area: %.2f \n",area1);
     printf("Pib: %.2f \n",pib);
     printf("Pontos turisticos: %d \n",pontoTuristico);
+    densidade1= densidadePopulacao(populacao1,area1);
+    printf("Densidade populacional %.2f \n",densidade1);
+    printf("--------------------------------\n");
 
     printf("Carta 2\n");
     printf("Estado: ");
@@ -77,6 +89,8 @@ int main(){
     printf("Area: %.2f \n",area2);
     printf("Pib: %.2f \n",pib2);
     printf("Pontos turisticos: %d \n",pontoTuristico2);
+    densidade2= densidadePopulacao(populacao2,area2);
+    printf("Densidade Populacional %.2f",densidade2);
 
     
     return 0;
