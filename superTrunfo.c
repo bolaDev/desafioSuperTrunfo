@@ -22,6 +22,7 @@ int main(void) {
     float densidade1, densidade2;
     float pibPercapita1, pibPercapita2;
     float superPoder1;
+    float superPoder2;
 
     /* ----------- Carta 1 ----------- */
     printf("Desafio Super Trunfo!\n");
@@ -83,6 +84,9 @@ int main(void) {
 
     densidade2 = densidadePopulacao(populacao2, area2);
     pibPercapita2 = pibPercapita(pib2, populacao2);
+    superPoder2 = CalcularSuperPoder(populacao2, area2, pib2,
+                                    pontoTuristico2, densidade2,
+                                    pibPercapita2);
 
     printf("Carta: 2\n");
     printf("Estado: %c\n", estado2);
@@ -94,6 +98,7 @@ int main(void) {
     printf("Pontos turísticos: %d\n", pontoTuristico2);
     printf("Densidade populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per capita: %.2f reais\n", pibPercapita2);
+    printf("Super poder: %.2f \n",superPoder2);
 
     return 0;
 }
@@ -115,5 +120,5 @@ float CalcularSuperPoder(unsigned long int populacao,
                          float pibPercapita) {
     /* Exemplo de cálculo – ajuste conforme a regra do seu jogo */
     return (float)populacao + area + pib + (float)pontoTuristico
-           - densidade + pibPercapita;
+           + (1/densidade) + pibPercapita;
 }
