@@ -120,6 +120,19 @@ int main(void) {
     printf("PIB Percapita: Carta 1 venceu %d \n",resultadoPibPercapita);
     printf("Super Poder: Carta 1 venceu %d \n",resultadoSuperPoder);
 
+    printf("--------------------\n");
+    printf("Comparação de cartas (Atributo: População)\n\n");
+    printf("Carta 1 - %s",nomeCidade);
+    printf(": %lu \n",populacao1);
+    printf("Carta 2 - %s",nomeCidade2);
+    printf(": %lu\n",populacao2);
+    if(populacao1 > populacao2){
+        printf("Resultado: Carta 1 (%s) ",nomeCidade);
+        printf(" venceu!");
+    }else{
+        printf("Resultado: Carta 2 (%s)",nomeCidade2);
+        printf(" venceu!");
+    }
 
 
     return 0;
