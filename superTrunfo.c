@@ -92,7 +92,8 @@ int main(void) {
                                     pibPercapita2);
 
     resultadoArea = area1 > area2;
-    resultadoDensidade = densidade1 > densidade2;
+    resultadoDensidade = densidade1 < densidade2;
+    resultadoPib= pib1 > pib2;
     resultadoPibPercapita = pibPercapita1 > pibPercapita2;
     resultadoPontoTuristico = pontoTuristico1 > pontoTuristico2;
     resultadoPopulacao = populacao1 > populacao2;
@@ -131,7 +132,21 @@ int main(void) {
         printf(" venceu!");
     }else{
         printf("Resultado: Carta 2 (%s)",nomeCidade2);
-        printf(" venceu!");
+        printf(" venceu!\n");
+    }
+
+    printf("---------------------\n");
+    printf("(Atributo: Área)\n");
+    printf("Carta 1 - %s ",nomeCidade);
+    printf(":%.2f\n",area1);
+    printf("Carta 2 -%s ",nomeCidade2);
+    printf(":%.2f\n",area2);
+    if(area1 > area2){
+        printf("Resultado: Carta 1 %s",nomeCidade);
+        printf("venceu!");
+    }else{
+        printf("Resultado: Carta 2 %s",nomeCidade2);
+        printf("venceu!");
     }
 
 
@@ -140,7 +155,7 @@ int main(void) {
 
 /* ---------- Implementação das funções ---------- */
 float densidadePopulacao(unsigned long int populacao, float area) {
-    return populacao / area;
+    return  (populacao / area);
 }
 
 float pibPercapita(float pib, unsigned long int populacao) {
