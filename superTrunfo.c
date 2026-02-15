@@ -18,7 +18,7 @@ int main(void) {
     char nomeCidade2[30];
     unsigned long int populacao1, populacao2;
     float area1, area2, pib1, pib2;
-    int pontoTuristico1, pontoTuristico2;
+    int pontoTuristico1, pontoTuristico2,opcao;
     float densidade1, densidade2;
     float pibPercapita1, pibPercapita2;
     float superPoder1;
@@ -111,6 +111,38 @@ int main(void) {
     printf("PIB per capita: %.2f reais\n", pibPercapita2);
     printf("Super poder: %.2f \n\n",superPoder2); 
 
+    printf("*** Menu ***\n");
+    printf("Escolha o atributo a ser comparado:\n");
+    printf("1. População \n");
+    printf("2. Área \n");
+    printf("3. Pib \n");
+    printf("4. Pontos turísticos \n");
+    printf("5. Densidade \n");
+    printf("6. Super poder\n");
+
+    switch (opcao)
+    {
+    case 1:
+    printf("(Atributo: População)\n");
+    printf("Carta 1 - %s",nomeCidade);
+    printf(": %lu \n",populacao1);
+    printf("Carta 2 - %s",nomeCidade2);
+    printf(": %lu\n",populacao2);
+    if(populacao1 > populacao2){
+        printf("Resultado: Carta 1 (%s) ",nomeCidade);
+        printf(" venceu!\n");
+    }else if{
+        printf("Resultado: Carta 2 (%s)",nomeCidade2);
+        printf(" venceu!\n");
+    }else{
+        printf("Empatou\n");
+    }
+        break;
+    
+    default:
+        break;
+    }
+
     /*
     printf("------------------------------------\n");
     printf("Comparação de Cartas:\n");
@@ -124,6 +156,7 @@ int main(void) {
     */
 
     //Comparação entre as cartas
+    /*
     printf("--------------------\n");
     printf("Comparação de cartas\n");
     printf("(Atributo: População)\n");
@@ -239,6 +272,7 @@ int main(void) {
         printf("Resultado: Carta 2 (%s) ",nomeCidade2);
         printf("venceu!\n");
     }
+    */
 
     return 0;
 }
