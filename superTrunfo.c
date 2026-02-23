@@ -18,12 +18,12 @@ int main(void) {
     char nomeCidade2[30];
     unsigned long int populacao1, populacao2;
     float area1, area2, pib1, pib2;
-    int pontoTuristico1, pontoTuristico2,opcao,opcao2;
+    int pontoTuristico1, pontoTuristico2,opcao,opcao2,opcao3;
     float densidade1, densidade2;
     float pibPercapita1, pibPercapita2;
     float superPoder1;
     float superPoder2;
-    int resultado1,resultado2;
+    int resultado1,resultado2,resultado3;
 
     /* ----------- Carta 1 ----------- */
     printf("Desafio Super Trunfo!\n");
@@ -154,7 +154,7 @@ int main(void) {
     printf("5. Densidade \n");
     printf("6. Super poder\n");
     scanf("%d",&opcao2);
-
+    // Lógica para não permitir que seja escolhido o mesmo atributo
     if(opcao2 == opcao){
         printf("Você escolheu o mesmo atributo!");
     }else
@@ -182,6 +182,7 @@ int main(void) {
         resultado2 = densidade1 < densidade2 ? 1 : 0;
         break;
     case 6:
+
         printf("Você escolheu o atributo: Super poder\n");
         resultado2 = superPoder1 > superPoder2 ? 1 : 0;
         break;    
@@ -189,12 +190,59 @@ int main(void) {
         break;
     }
 
-    if(resultado1 && resultado2 ){
+    printf("Escolha o 3° atributo a ser comparado:\n");
+    printf("Você não deve escolher o mesmo atributo das escolhas anteriores! \n");
+    printf("1. População \n");
+    printf("2. Área \n");
+    printf("3. Pib \n");
+    printf("4. Pontos turísticos \n");
+    printf("5. Densidade \n");
+    printf("6. Super poder\n");
+    scanf("%d",&opcao3);
+    // Lógica para não permitir que seja escolhido o mesmo atributo
+    if(opcao2 == opcao == opcao3){
+        printf("Você escolheu o mesmo atributo!");
+    }else
+    {
+        switch (opcao3)
+    {
+    case 1:
+        printf("Você escolheu o atributo: População\n");
+        resultado3 = populacao1 > populacao2 ? 1 : 0;
+        break;
+    case 2:
+        printf("Você escolheu o atributo: Área\n");
+        resultado3 = area1 > area2 ? 1 : 0;
+        break;
+    case 3:
+        printf("Você escolheu o atributo: PIB\n");
+        resultado3 = pib1 > pib2 ? 1 : 0;
+        break;
+    case 4:
+        printf("Você escolheu o atributo: Pontos turísticos\n");
+        resultado3 = pontoTuristico1 > pontoTuristico2 ? 1 : 0;
+        break;
+    case 5:
+        printf("Você escolheu o atributo: Densidade\n");
+        resultado3 = densidade1 < densidade2 ? 1 : 0;
+        break;
+    case 6:
+    
+        printf("Você escolheu o atributo: Super poder\n");
+        resultado3 = superPoder1 > superPoder2 ? 1 : 0;
+        break;    
+    default:
+        break;
+    }
+
+    if(resultado1 && resultado2 && resultado3){
         printf("Carta 1 venceu!");
-    }else if (resultado1 != resultado2){
-        printf("O jogo empatou!");
+    }else if (!(resultado1 && resultado2 && resultado3)){
+        printf("Carta 2 Venceu!");
+    }else if ((resultado1 == 1 && resultado2 == 1) && resultado3 == 0){
+        printf("Carta 1 venceu");
     }else{
-        printf("Carta 2 venceu");
+        printf("Carta 2 venceu!");
     }
 
     }
