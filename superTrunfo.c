@@ -200,55 +200,57 @@ int main(void) {
     printf("6. Super poder\n");
     scanf("%d",&opcao3);
     // Lógica para não permitir que seja escolhido o mesmo atributo
-    if(opcao2 == opcao == opcao3){
+        if((opcao2 == opcao3)||(opcao3 == opcao)){
         printf("Você escolheu o mesmo atributo!");
-    }else
-    {
-        switch (opcao3)
-    {
-    case 1:
-        printf("Você escolheu o atributo: População\n");
-        resultado3 = populacao1 > populacao2 ? 1 : 0;
-        break;
-    case 2:
-        printf("Você escolheu o atributo: Área\n");
-        resultado3 = area1 > area2 ? 1 : 0;
-        break;
-    case 3:
-        printf("Você escolheu o atributo: PIB\n");
-        resultado3 = pib1 > pib2 ? 1 : 0;
-        break;
-    case 4:
-        printf("Você escolheu o atributo: Pontos turísticos\n");
-        resultado3 = pontoTuristico1 > pontoTuristico2 ? 1 : 0;
-        break;
-    case 5:
-        printf("Você escolheu o atributo: Densidade\n");
-        resultado3 = densidade1 < densidade2 ? 1 : 0;
-        break;
-    case 6:
-    
-        printf("Você escolheu o atributo: Super poder\n");
-        resultado3 = superPoder1 > superPoder2 ? 1 : 0;
-        break;    
-    default:
-        break;
-    }
+    } else {
+        switch (opcao3) {
+            case 1:
+                printf("Você escolheu o atributo: População\n");
+                resultado3 = populacao1 > populacao2 ? 1 : 0;
+                break;
+            case 2:
+                printf("Você escolheu o atributo: Área\n");
+                resultado3 = area1 > area2 ? 1 : 0;
+                break;
+            case 3:
+                printf("Você escolheu o atributo: PIB\n");
+                resultado3 = pib1 > pib2 ? 1 : 0;
+                break;
+            case 4:
+                printf("Você escolheu o atributo: Pontos turísticos\n");
+                resultado3 = pontoTuristico1 > pontoTuristico2 ? 1 : 0;
+                break;
+            case 5:
+                printf("Você escolheu o atributo: Densidade\n");
+                resultado3 = densidade1 < densidade2 ? 1 : 0;
+                break;
+            case 6:
+                printf("Você escolheu o atributo: Super poder\n");
+                resultado3 = superPoder1 > superPoder2 ? 1 : 0;
+                break;
+            default:
+                break;
+        } // fecha switch opcao3
 
-    if(resultado1 && resultado2 && resultado3){
-        printf("Carta 1 venceu!");
-    }else if (!(resultado1 && resultado2 && resultado3)){
-        printf("Carta 2 Venceu!");
-    }else if ((resultado1 == 1 && resultado2 == 1) && resultado3 == 0){
-        printf("Carta 1 venceu");
-    }else{
-        printf("Carta 2 venceu!");
-    }
+        if(resultado1 && resultado2 && resultado3){
+            printf("Carta 1 venceu!");
+        }else if ((resultado1 && resultado2) && resultado3 == 0){
+            printf("Carta 1 venceu");
+        }else if (resultado1 == 0 && (resultado2 && resultado3)){
+            printf("Carta 1 venceu");
+        }else if (((resultado1) && resultado2 == 0 && (resultado3))){
+            printf("Carta 1 Venceu!");
+        }  else {
+            printf("Carta 2 venceu!");
+        }
 
-    }
+    } // fecha else do opcao3
+
+    } // fecha else do opcao2
 
     return 0;
-}
+} // fecha main
+
 
 
 /* ---------- Implementação das funções ---------- */
@@ -270,3 +272,4 @@ float CalcularSuperPoder(unsigned long int populacao,
     return (float)populacao + area + pib + (float)pontoTuristico
            + (1/densidade) + pibPercapita;
 }
+
